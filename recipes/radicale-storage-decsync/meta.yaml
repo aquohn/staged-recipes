@@ -1,5 +1,5 @@
 {% set name = "radicale-storage-decsync" %}
-{% set version = "1.2.2" %}
+{% set version = "2.0.0" %}
 
 
 package:
@@ -7,8 +7,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/radicale_storage_decsync-{{ version }}.tar.gz
-  sha256: 70b552246ac50ef7f1ef07de091c53096800e9cbf128ab19673215c6a28e45d7
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name|replace('-','_') }}-{{ version }}.tar.gz
+  sha256: e4c513bd3b68d5eae07009c7881ec9f1af76b9b37e19b056c2e29414945ea63b
 
 build:
   number: 0
@@ -18,10 +18,10 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python
   run:
-    - libdecsync >=1.3.1
-    - python >=3.6
+    - libdecsync >=2.0.0
+    - python
     - radicale >=3
 
 test:

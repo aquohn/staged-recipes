@@ -1,5 +1,5 @@
 {% set name = "libdecsync" %}
-{% set version = "1.7.1" %}
+{% set version = "2.1.0.post1" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/libdecsync-{{ version }}.tar.gz
-  sha256: 21c74e3a0923dec7cbb8ffa991211a1e6aa8b7e926df02c9371f87ff838dcfe8
+  sha256: cc0a07dd7fb0032331646f6724821aef7dd69ae40a207a052026943e54c24193
 
 build:
   number: 0
