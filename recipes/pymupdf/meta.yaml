@@ -1,0 +1,48 @@
+{% set name = "pymupdf" %}
+{% set version = "1.21.1" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/PyMuPDF-{{ version }}.tar.gz
+  sha256: f815741a435c62a0036bbcbf5fa6c533567bd69c5338d413714fc57b22db93e0
+
+build:
+  skip: true  # [py<37]
+  script: {{ PYTHON }} -m pip install . -vv
+  number: 0
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - swig
+  host:
+    - python
+    - distro
+    - pip
+  run:
+    - python
+
+test:
+  imports:
+    - fitz.__main__
+    - fitz.fitz
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: https://github.com/pymupdf/PyMuPDF
+  summary: Python bindings for the PDF toolkit and renderer MuPDF
+  dev_url: https://github.com/pymupdf/pymupdf
+  license: AGPL-3.0-only
+  license_file:
+    - COPYING
+
+extra:
+  recipe-maintainers:
+    - aquohn
